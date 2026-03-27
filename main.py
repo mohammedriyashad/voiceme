@@ -3,6 +3,7 @@ main.py — VoiceMe AAC Advanced System
 FastAPI application entry point.
 Run: python main.py
 """
+
 import uvicorn
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
