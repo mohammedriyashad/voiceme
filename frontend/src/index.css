@@ -1,27 +1,47 @@
-/* ── Reset & Tokens ── */
+/* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* ── Warm Light Autism-Friendly Design Tokens ── */
 :root {
-  --bg:       #060B14;
-  --surface:  #0C1524;
-  --card:     #101E32;
-  --card2:    #132138;
-  --border:   #1A2E48;
-  --border2:  #243D5C;
-  --cyan:     #00C8F0;
-  --violet:   #6C63FF;
-  --green:    #00E5A0;
-  --red:      #FF5A5A;
-  --amber:    #F59E0B;
-  --text:     #E2EFF8;
-  --muted:    #48688A;
-  --muted2:   #304D6B;
-  --font:     'Plus Jakarta Sans', sans-serif;
-  --mono:     'JetBrains Mono', monospace;
-  --radius:   14px;
-  --radius-sm: 8px;
-  --glow-c:   0 0 22px rgba(0,200,240,0.2);
-  --glow-v:   0 0 22px rgba(108,99,255,0.2);
+  /* Backgrounds */
+  --bg:        #FFF8F0;       /* warm cream */
+  --surface:   #FFFCF7;       /* softer cream */
+  --card:      #FFFFFF;       /* pure white cards */
+  --card2:     #FFF3E4;       /* peach tinted */
+
+  /* Borders */
+  --border:    #F0DEC8;       /* warm beige border */
+  --border2:   #E8D0B0;       /* slightly deeper */
+
+  /* Brand colours */
+  --primary:   #F4845F;       /* warm coral/orange */
+  --primary2:  #E8A87C;       /* soft peach */
+  --accent:    #5BA4CF;       /* calm sky blue */
+  --accent2:   #7BC67E;       /* soft green */
+  --amber:     #F5B942;       /* warm yellow */
+
+  /* Alerts */
+  --red:       #E05252;
+  --green:     #5BA87E;
+
+  /* Text */
+  --text:      #3D2B1F;       /* warm dark brown */
+  --text2:     #6B4F3A;       /* medium brown */
+  --muted:     #A08070;       /* muted warm */
+  --muted2:    #C8B0A0;       /* lighter muted */
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(200,140,100,0.10);
+  --shadow-md: 0 4px 16px rgba(200,140,100,0.15);
+  --shadow-lg: 0 8px 32px rgba(200,140,100,0.18);
+
+  /* Radius */
+  --radius:    16px;
+  --radius-sm: 10px;
+
+  /* Font */
+  --font:      'Nunito', 'Plus Jakarta Sans', sans-serif;
+  --mono:      'JetBrains Mono', monospace;
 }
 
 html, body, #root {
@@ -31,38 +51,37 @@ html, body, #root {
   color: var(--text);
   font-family: var(--font);
   font-size: 13px;
+  line-height: 1.5;
 }
 
-/* Grid background */
+/* Subtle warm dot pattern background */
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(0,200,240,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,200,240,0.025) 1px, transparent 1px);
-  background-size: 48px 48px;
+  background-image: radial-gradient(circle, rgba(244,132,95,0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
   pointer-events: none;
   z-index: 0;
 }
 
-/* Scrollbars */
-::-webkit-scrollbar { width: 4px; height: 4px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 2px; }
+/* ── Google Font Import ── */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap');
 
-/* Animations */
-@keyframes pulse    { 0%,100%{opacity:1} 50%{opacity:.3} }
-@keyframes chipIn   { from{transform:scale(.7);opacity:0} to{transform:scale(1);opacity:1} }
-@keyframes slideUp  { from{transform:translateY(16px);opacity:0} to{transform:translateY(0);opacity:1} }
-@keyframes fadeIn   { from{opacity:0} to{opacity:1} }
-@keyframes shimmer  {
-  0%   { background-position: -400px 0; }
-  100% { background-position:  400px 0; }
-}
-@keyframes micPulse {
-  0%   { box-shadow: 0 0 0 0   rgba(255,90,90,.5); }
-  70%  { box-shadow: 0 0 0 14px rgba(255,90,90,0); }
-  100% { box-shadow: 0 0 0 0   rgba(255,90,90,0); }
-}
-@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+/* ── Scrollbars ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--muted2); }
+
+/* ── Animations ── */
+@keyframes pulse      { 0%,100%{opacity:1} 50%{opacity:.4} }
+@keyframes chipIn     { from{transform:scale(.7);opacity:0} to{transform:scale(1);opacity:1} }
+@keyframes slideUp    { from{transform:translateY(14px);opacity:0} to{transform:translateY(0);opacity:1} }
+@keyframes fadeIn     { from{opacity:0} to{opacity:1} }
+@keyframes shimmer    { 0%{background-position:-400px 0} 100%{background-position:400px 0} }
+@keyframes micPulse   { 0%{box-shadow:0 0 0 0 rgba(244,132,95,.4)} 70%{box-shadow:0 0 0 14px rgba(244,132,95,0)} 100%{box-shadow:0 0 0 0 rgba(244,132,95,0)} }
+@keyframes blink      { 0%,100%{opacity:1} 50%{opacity:0} }
+@keyframes bounce     { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+@keyframes greetIn    { from{transform:scale(.9) translateY(10px);opacity:0} to{transform:scale(1) translateY(0);opacity:1} }
+@keyframes typingDot  { 0%,100%{opacity:.3;transform:translateY(0)} 50%{opacity:1;transform:translateY(-3px)} }

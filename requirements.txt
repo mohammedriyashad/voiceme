@@ -1,5 +1,5 @@
 # ================================================================
-#  AAC System — Advanced Version  |  Python 3.11
+#  VoiceMe AAC v3 — requirements.txt  |  Python 3.11
 #  pip install -r requirements.txt
 # ================================================================
 
@@ -12,43 +12,30 @@ aiofiles==23.2.1
 websockets==12.0
 python-dotenv==1.0.1
 
-# ── Database (SQLite via SQLAlchemy) ──────────────────────────
+# ── Database ──────────────────────────────────────────────────
 sqlalchemy==2.0.30
-alembic==1.13.1
 
 # ── Computer Vision ───────────────────────────────────────────
 opencv-python==4.9.0.80
 numpy==1.26.4
 Pillow==10.3.0
 
-# ── MediaPipe (Gesture + Pose) ────────────────────────────────
+# ── MediaPipe ─────────────────────────────────────────────────
 mediapipe==0.10.14
 
 # ── Emotion Detection ─────────────────────────────────────────
 deepface==0.0.93
 tf-keras==2.16.0
 
-# ── Audio / Speech ────────────────────────────────────────────
-SpeechRecognition==3.10.4
-pyaudio==0.2.14
+# ── Groq LLM (replaces Phi-2 — fast, free, no GPU) ───────────
+groq==0.9.0
 
-# ── Phi-2 LLM (local) ─────────────────────────────────────────
-torch==2.3.0
-transformers==4.41.0
-accelerate==0.30.0
-sentencepiece==0.2.0
-einops==0.8.0
-
-# ── PDF Report Generation ─────────────────────────────────────
-reportlab==4.1.0
-
-# ── HTTP client (ARASAAC proxy) ───────────────────────────────
+# ── HTTP client ───────────────────────────────────────────────
 httpx==0.27.0
 
-# ── Auth (caregiver login) ────────────────────────────────────
-passlib[bcrypt]==1.7.4
-python-jose[cryptography]==3.3.0
+# ── PDF Reports ───────────────────────────────────────────────
+reportlab==4.1.0
 
 # ── Validation ────────────────────────────────────────────────
 pydantic==2.7.1
-email-validator==2.1.1
+scikit-learn==1.4.2

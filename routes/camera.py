@@ -53,7 +53,7 @@ def _run_models(frame: np.ndarray, run_emotion: bool = True):
             # Draw emotion label on frame
             annotated = emotion_detector.draw(annotated, emo)
             # Update global state
-            app_state.emotion = emo
+            app_state.update_emotion(emo)
 
     # Update gesture and pose state
     if ges:
@@ -146,3 +146,6 @@ async def camera_ws(websocket: WebSocket):
         app_state.camera_active = False
         app_state.current_frame = None
         print('[Camera WS] Connection closed')
+
+# Note: emotion is now updated via app_state.update_emotion()
+# This is called in the _run_models function above
