@@ -156,13 +156,13 @@ async def generate_response(
         t0 = time.time()
         response = await client.chat.completions.create(
             model       = config.GROQ_MODEL,
-            messages    = messages,
+            messages    = messages, # type: ignore
             max_tokens  = 80,
             temperature = 0.7,
             top_p       = 0.9,
         )
         elapsed  = round((time.time() - t0) * 1000)
-        sentence = response.choices[0].message.content.strip()
+        sentence = response.choices[0].message.content.strip() # type: ignore
         print(f"[LLM] Groq responded in {elapsed}ms: {sentence}")
 
         # Store in state

@@ -26,12 +26,12 @@ def _decode(b64: str) -> np.ndarray:
         return frame
     except Exception as e:
         print(f'[Camera] Decode error: {e}')
-        return None
+        return None # type: ignore
 
 def _encode(frame: np.ndarray, quality: int = 75) -> str:
     """Encode BGR numpy array → base64 JPEG string"""
     _, buf = cv2.imencode('.jpg', frame, [cv2.IMWRITE_JPEG_QUALITY, quality])
-    return 'data:image/jpeg;base64,' + base64.b64encode(buf).decode()
+    return 'data:image/jpeg;base64,' + base64.b64encode(buf).decode() # type: ignore
 
 def _run_models(frame: np.ndarray, run_emotion: bool = True):
     """Run all CV models on one frame (runs in thread pool)"""
